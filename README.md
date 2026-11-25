@@ -2,7 +2,7 @@
 
 A 2D top-down naval shooter. React renders the menus, PixiJS renders the arena, TanStack Query + Axios talk to a mocked ranking/history API (MSW), and Playwright tests everything end to end.
 
-- Live demo (mocks enabled): _add the Vercel URL here after deploying_
+- Live demo (mocks enabled): https://pirate-battle-lilac.vercel.app
 - Architecture and decisions: [ARCHITECTURE.md](./ARCHITECTURE.md)
 - Test report and profiling: [docs/TEST_REPORT.md](./docs/TEST_REPORT.md), [docs/PROFILING.md](./docs/PROFILING.md)
 
