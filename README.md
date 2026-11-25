@@ -6,6 +6,22 @@ A 2D top-down naval shooter. React renders the menus, PixiJS renders the arena, 
 - Architecture and decisions: [ARCHITECTURE.md](./ARCHITECTURE.md)
 - Test report and profiling: [docs/TEST_REPORT.md](./docs/TEST_REPORT.md), [docs/PROFILING.md](./docs/PROFILING.md)
 
+## Screenshots
+
+| Main menu                                                   | Match                                                   |
+| ----------------------------------------------------------- | ------------------------------------------------------- |
+| ![Main menu with controls and ranking](./docs/img/menu.png) | ![Arena with HUD and health bars](./docs/img/arena.png) |
+
+| Paused                                 | Result                                                       |
+| -------------------------------------- | ------------------------------------------------------------ |
+| ![Pause dialog](./docs/img/paused.png) | ![Match result with ranking position](./docs/img/result.png) |
+
+Mobile (landscape) with touch controls:
+
+![Mobile arena with touch controls](./docs/img/mobile-arena.png)
+
+Regenerate them with `npm run docs:screenshots`.
+
 ## Requirements
 
 - Node.js 20.19+ or 22.12+ (current LTS)
@@ -33,6 +49,7 @@ npm run dev                        # http://localhost:5173
 | `npm run test:e2e:update`  | Regenerates the visual baselines in `e2e/__screenshots__`                                                              |
 | `npm run test:e2e:report`  | Opens the HTML report (traces are kept for failed tests)                                                               |
 | `npm run test:e2e:install` | Downloads the Chromium build used by Playwright                                                                        |
+| `npm run docs:screenshots` | Regenerates the README screenshots in `docs/img`                                                                       |
 | `npm run profile`          | 3-minute frame-rate runs and the 5-cycle memory check (about 9 minutes, headed Chromium; writes `docs/profile-*.json`) |
 
 ## Project structure
