@@ -1,0 +1,49 @@
+/* Gold plaque buttons from the UI pack. */
+
+button {
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  text-shadow: 0 1px 0 rgba(255, 236, 170, 0.6);
+  min-width: 200px;
+  height: 64px;
+  padding: 0 30px 4px;
+  border: 0;
+  background: url('/assets/ui/1x/menu/button_primary_normal.png') center / 100% 100% no-repeat;
+  cursor: pointer;
+}
+
+button:hover {
+  background-image: url('/assets/ui/1x/menu/button_primary_hover.png');
+}
+
+button:active {
+  background-image: url('/assets/ui/1x/menu/button_primary_pressed.png');
+}
+
+button:disabled {
+  background-image: url('/assets/ui/1x/menu/button_primary_disabled.png');
+  color: #7b6a46;
+  text-shadow: none;
+  cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(255, 211, 106, 0.55);
+}
+
+p button,
+.error button,
+.summary button {
+  min-width: 130px;
+  height: 46px;
+  padding: 0 18px 3px;
+  font-size: 0.8rem;
+}

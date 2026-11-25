@@ -1,0 +1,198 @@
+/* Match screen: overlays, dialogs and the heads-up display. */
+
+.game-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.game-host {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(4, 22, 36, 0.86);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  text-align: center;
+  width: min(92vw, 440px);
+  padding: 8px 12px 16px;
+  border: solid transparent;
+  border-width: 40px 32px;
+  border-image: url('/assets/ui/1x/menu/panel_menu.png') 40 32 40 32 fill / 40px 32px stretch;
+}
+
+.overlay:has(.dialog),
+.dialog-backdrop {
+  background: rgba(4, 22, 36, 0.78);
+}
+
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.hud-health {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hud-heart {
+  width: 40px;
+  height: 40px;
+}
+
+.hud-bar {
+  position: relative;
+  width: 240px;
+  height: 45px;
+  background: url('/assets/ui/1x/hud/health_frame.png') 0 0 / 100% 100% no-repeat;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  color: #fff;
+  text-shadow: 0 1px 2px #000;
+}
+
+.hud-bar span {
+  position: relative;
+  z-index: 1;
+  margin-top: 1px;
+}
+
+.hud-fill {
+  position: absolute;
+  inset: 0;
+  background: url('/assets/ui/1x/hud/health_fill_green.png') 0 0 / 100% 100% no-repeat;
+  /* clip to fill_rect x = 30..226 of 256 (ui_sheet.json) */
+  clip-path: inset(0 calc(100% - (11.72% + 76.56% * var(--hp))) 0 0);
+}
+
+.hud-fill[data-level='mid'] {
+  background-image: url('/assets/ui/1x/hud/health_fill_amber.png');
+}
+
+.hud-fill[data-level='low'] {
+  background-image: url('/assets/ui/1x/hud/health_fill_red.png');
+}
+
+.hud-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 150px;
+  height: 52px;
+  padding: 0 16px 0 14px;
+  background: url('/assets/ui/1x/hud/counter_panel.png') center / 100% 100% no-repeat;
+  font-size: 1.25rem;
+  color: #fff3d0;
+  text-shadow: 0 1px 2px #000;
+}
+
+.counter img {
+  width: 32px;
+  height: 32px;
+}
+
+.hud-pause {
+  pointer-events: auto;
+  min-width: 0;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  background:
+    url('/assets/ui/1x/controls/icon_pause.png') center / 58% no-repeat,
+    url('/assets/ui/1x/controls/button_round_normal.png') center / 100% 100% no-repeat;
+}
+
+.hud-pause:hover {
+  background-image:
+    url('/assets/ui/1x/controls/icon_pause.png'), url('/assets/ui/1x/controls/button_round_hover.png');
+}
+
+.kbd-hint {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  z-index: 10;
+  font-size: 12px;
+  opacity: 0.9;
+  text-shadow: 0 1px 3px #000;
+  pointer-events: none;
+}
+
+.rotate-hint {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 12px;
+  right: 12px;
+  z-index: 10;
+  text-align: center;
+  font-size: 13px;
+  padding: 6px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.hud-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(200, 20, 20, 0.45) 100%);
+  animation: vignette-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes vignette-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-vignette {
+    animation: none;
+    opacity: 0.8;
+  }
+}

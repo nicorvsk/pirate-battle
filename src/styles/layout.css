@@ -1,0 +1,180 @@
+/* Menu screens, panels, cards and forms. */
+
+.screen {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 12px 40px;
+  overflow: auto;
+  background:
+    linear-gradient(rgba(3, 22, 38, 0.3), rgba(3, 22, 38, 0.3)),
+    url('/assets/bg/scene.png') center / cover fixed;
+}
+
+.screen::after {
+  content: '';
+  position: fixed;
+  right: 16px;
+  bottom: 12px;
+  width: 120px;
+  height: 40px;
+  background: url('/assets/logo_jungle_gaming.svg') right bottom / contain no-repeat;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.panel {
+  width: min(100%, 560px);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 22px 24px;
+  border: solid transparent;
+  border-width: 40px 32px;
+  border-image: url('/assets/ui/1x/menu/panel_menu.png') 40 32 40 32 fill / 40px 32px stretch;
+}
+
+.panel-wide {
+  width: min(100%, 820px);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin: -22px 0 -8px;
+}
+
+.title img {
+  width: min(100%, 360px);
+  height: auto;
+}
+
+.tagline {
+  text-align: center;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+
+.card {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(5, 14, 28, 0.45);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.card.wide {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  justify-content: center;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 6px;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.ok {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffe6a8;
+}
+
+.controls {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.controls th {
+  text-align: left;
+  padding: 3px 14px 3px 0;
+  white-space: nowrap;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.controls td {
+  padding: 3px 0;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 20px;
+  margin: 0;
+}
+
+.summary dt {
+  color: var(--muted);
+}
+
+.summary dd {
+  margin: 0;
+  font-weight: 800;
+  color: #ffe6a8;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+[role='tab'] {
+  min-width: 190px;
+  height: 56px;
+  color: #f6ecd2;
+  text-shadow: 0 1px 2px #000;
+  background-image: url('/assets/ui/1x/menu/button_secondary_normal.png');
+}
+
+[role='tab']:hover {
+  background-image: url('/assets/ui/1x/menu/button_secondary_pressed.png');
+}
+
+[role='tab'][aria-selected='true'] {
+  color: var(--gold-ink);
+  text-shadow: 0 1px 0 rgba(255, 236, 170, 0.6);
+  background-image: url('/assets/ui/1x/menu/button_primary_normal.png');
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scenario {
+  margin-top: 12px;
+}

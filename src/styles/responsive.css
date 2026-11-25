@@ -1,0 +1,60 @@
+/* Small screens, coarse pointers and landscape hints. */
+
+@media (pointer: coarse) {
+  .kbd-hint {
+    display: none;
+  }
+}
+
+@media (orientation: portrait) and (pointer: coarse) {
+  .rotate-hint {
+    display: block;
+  }
+}
+
+@media (max-width: 720px), (max-height: 480px) {
+  .hud-bar {
+    width: 170px;
+    height: 32px;
+    font-size: 11px;
+  }
+  .hud-heart {
+    width: 28px;
+    height: 28px;
+  }
+  .counter {
+    width: 104px;
+    height: 38px;
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+  .counter img {
+    width: 22px;
+    height: 22px;
+  }
+  .hud-pause {
+    width: 42px;
+    height: 42px;
+  }
+  .touch-btn {
+    width: 56px;
+    height: 56px;
+  }
+  .panel,
+  .dialog {
+    border-width: 28px 22px;
+    border-image-width: 28px 22px;
+  }
+  .screen::after {
+    display: none;
+  }
+  button {
+    min-width: 150px;
+    height: 54px;
+  }
+  [role='tab'] {
+    min-width: 150px;
+    height: 48px;
+    font-size: 0.8rem;
+  }
+}
