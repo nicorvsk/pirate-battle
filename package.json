@@ -15,6 +15,7 @@
     "test:e2e:update": "playwright test --update-snapshots",
     "test:e2e:report": "playwright show-report",
     "profile": "playwright test -c playwright.perf.config.ts",
+    "docs:screenshots": "playwright test -c playwright.docs.config.ts",
     "test:e2e:install": "playwright install chromium"
   },
   "dependencies": {
