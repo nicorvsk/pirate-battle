@@ -1,0 +1,22 @@
+{
+  "scenario": "stress",
+  "spawnSeconds": "0.5",
+  "seconds": 180,
+  "frames": 10596,
+  "avgFps": 58.9,
+  "frameMs": {
+    "avg": 16.98,
+    "p50": 16.7,
+    "p95": 16.9,
+    "p99": 17,
+    "max": 1016.7
+  },
+  "slowFramesOver33ms": 4,
+  "maxEnemies": 105,
+  "maxProjectiles": 85,
+  "simMsPerStep": 0.057,
+  "heapMB": {
+    "start": 7.1,
+    "end": 10.7
+  }
+}

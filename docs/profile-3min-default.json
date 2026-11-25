@@ -1,0 +1,22 @@
+{
+  "scenario": "default",
+  "spawnSeconds": "2.5",
+  "seconds": 180,
+  "frames": 10796,
+  "avgFps": 60,
+  "frameMs": {
+    "avg": 16.67,
+    "p50": 16.7,
+    "p95": 16.9,
+    "p99": 17,
+    "max": 18.8
+  },
+  "slowFramesOver33ms": 0,
+  "maxEnemies": 6,
+  "maxProjectiles": 9,
+  "simMsPerStep": 0.003,
+  "heapMB": {
+    "start": 7.2,
+    "end": 8.9
+  }
+}
