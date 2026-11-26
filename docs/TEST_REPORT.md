@@ -25,12 +25,12 @@ The suite runs against `vite build` + `vite preview`, the same artifact that is 
 | `flows.spec.ts` | 8 | Pause without replaying held keys or paused time, result after a refresh, ranking position on the result screen, a failing rank query that keeps the match recorded, repeated navigation without leaks, pending record kept across a refresh and registered once, out-of-order responses, console free of errors |
 | `options.spec.ts` | 3 | Range validation with accessible errors, persistence after reload, reset to defaults |
 | `gameplay.spec.ts` | 9 | Manual clock, frontal (1) and broadside (3) shots, movement and rotation, seeded reproducibility, manual and automatic pause, end by sinking and by time, result registration, quitting without recording |
-| `network.spec.ts` | 7 | Pagination (23 fixtures, 3 pages), empty state, 5xx with recovery, isolated history failure, timeout after registering without duplicates, registration unavailable then retry, reset |
+| `network.spec.ts` | 8 | Ranking pagination (23 fixtures, 3 pages), history pagination (12 matches, newest first), empty state, 5xx with recovery, isolated history failure, timeout after registering without duplicates, registration unavailable then retry, reset |
 | `a11y-and-assets.spec.ts` | 5 | Asset failure with Retry and return to menu, dialog focus trap and Escape, ARIA tab keyboard pattern, HUD updated about once per second (no per-frame React renders) |
 | `touch.spec.ts` | 1 | Independent hold-buttons move and fire |
 | `visual.spec.ts` | 5 | Menu, options error, arena at a fixed seed and time, result screen, pause dialog |
 
-Total: 47 tests × 2 projects = **94 test runs**.
+Total: 48 tests × 2 projects = **96 test runs**.
 
 ## Visual regression
 
@@ -44,7 +44,8 @@ Baselines live in `e2e/__screenshots__/<project>/<spec>/` and are versioned. Tol
 | After adopting the supplied art and sounds, 45 tests | 73 passed, 17 failed. 10 were the expected visual diffs (baselines regenerated); the rest were real: a 95 s `advance()` handed the renderer thousands of effects at once, so the result screen replaced the match before the test could read its state. |
 | Fixes | The test hook now renders only the last 300 ms of events of a long jump; the end-of-match pause is 2.5 s under `?e2e`; the Pixi resolution is capped at 2x; a registration test no longer races the app's own retry; the end-of-match test reads its states in one atomic `evaluate`; the repeated-navigation test uses 3 cycles and a 120 s limit (each cycle reloads Pixi and the asset pack). |
 | After the folder reorganisation, game feedback, rank position and code splitting (47 tests) | Baseline regeneration run: 93 passed, 1 timed out (the pending-record test hit its 60 s limit while 4 workers competed for CPU). |
-| **Final full run (2026-11-25)** | **94 passed, 0 failed, 7.0 min, 4 workers** (47 tests × desktop and mobile), against regenerated and reviewed baselines. `typecheck`, `lint` and `build` are clean. |
+| History pagination test added | `npx playwright test network`: 16 passed (8 tests × 2 projects). |
+| **Final full run (2026-11-26)** | **96 passed, 0 failed, 0 flaky, 6.0 min, 4 workers** (48 tests × desktop and mobile). `typecheck`, `lint` and `build` are clean. |
 
 Under 4 parallel workers with software rendering, a few tests take 40 s or more. They are slow rather than flaky, but the pending-record test did time out once in a run that regenerated baselines and passed in the next full run, so on a loaded machine use `--workers=2`. Running a subset (`npx playwright test flows`) is much faster.
 
